@@ -1,0 +1,24 @@
+--1. 계정생성
+create user jsp identified by jsp;
+--2. 권한부여
+grant connect, resource to jsp;
+--3. 테이블 스페이스 지정
+alter user jsp default tablespace users QUOTA UNLIMITED on users;
+
+create table member(
+       id varchar2(30) primary key,
+       pw varchar2(30) not null,
+       name varchar2(30),
+       region varchar2(30),
+       gender char(1) check(gender in ('m', 'w'))
+       
+);
+select*from member;
+
+SELECT*FROM MEMBER;
+
+SELECT*FROM MEMBER WHERE ID = 'abc' and PW = '1234';
+
+update member set pw = ?, name = ?, region= ?, gender = ? where id = ?;
+
+rollback;
